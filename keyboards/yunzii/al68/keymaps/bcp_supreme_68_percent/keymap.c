@@ -31,6 +31,41 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 // Register Macros
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case MACRO_COPY:
+            if (record->event.pressed) {
+                #include "macros/copy.c"
+            }
+            return false;
+        case MACRO_CUT:
+            if (record->event.pressed) {
+                #include "macros/cut.c"
+            }
+            return false;
+        case MACRO_DUPLICATE:
+            if (record->event.pressed) {
+                #include "macros/duplicate.c"
+            }
+            return false;
+        case MACRO_FOCUS_SPACE_LEFT:
+            if (record->event.pressed) {
+                #include "macros/focus_space_left.c"
+            }
+            return false;
+        case MACRO_FOCUS_SPACE_RIGHT:
+            if (record->event.pressed) {
+                #include "macros/focus_space_right.c"
+            }
+            return false;
+        case MACRO_FOCUS_TAB_LEFT:
+            if (record->event.pressed) {
+                #include "macros/focus_tab_left.c"
+            }
+            return false;
+        case MACRO_FOCUS_TAB_RIGHT:
+            if (record->event.pressed) {
+                #include "macros/focus_tab_right.c"
+            }
+            return false;
         case MACRO_FOCUS_WINDOW_LEFT:
             if (record->event.pressed) {
                 #include "macros/focus_window_left.c"
@@ -39,6 +74,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case MACRO_FOCUS_WINDOW_RIGHT:
             if (record->event.pressed) {
                 #include "macros/focus_window_right.c"
+            }
+            return false;
+        case MACRO_GO_BACK:
+            if (record->event.pressed) {
+                #include "macros/go_back.c"
+            }
+            return false;
+        case MACRO_GO_FORWARD:
+            if (record->event.pressed) {
+                #include "macros/go_forward.c"
+            }
+            return false;
+        case MACRO_PASTE:
+            if (record->event.pressed) {
+                #include "macros/paste.c"
+            }
+            return false;
+        case MACRO_REDO:
+            if (record->event.pressed) {
+                #include "macros/redo.c"
+            }
+            return false;
+        case MACRO_UNDO:
+            if (record->event.pressed) {
+                #include "macros/undo.c"
             }
             return false;
     }
