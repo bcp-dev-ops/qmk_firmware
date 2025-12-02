@@ -120,7 +120,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case MACRO_UNDO:
             if (record->event.pressed) {
-                #include "macros/undo.c"
+                if (get_mods() & MOD_MASK_SHIFT) {
+                    #include "macros/redo.c"
+                } else {
+                    #include "macros/undo.c"
+                }
             }
             return false;
     }
