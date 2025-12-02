@@ -1,6 +1,6 @@
 #pragma once
 
 enum layers {
-    ALPHA_QWERTY = 0,
-    FUNCTIONAL = 1,
+    L_ALPHA_QWERTY = 0,
+    L_FUNCTIONAL = 1,
 };

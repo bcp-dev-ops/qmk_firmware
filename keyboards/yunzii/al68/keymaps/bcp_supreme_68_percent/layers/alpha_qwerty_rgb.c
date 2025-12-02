@@ -4,7 +4,7 @@ void alpha_qwerty_rgb_indicators(void) {
             uint8_t index = g_led_config.matrix_co[row][column];
 
             if (index != NO_LED) {
-                uint16_t keycode = keymap_key_to_keycode(ALPHA_QWERTY, (keypos_t){column, row});
+                uint16_t keycode = keymap_key_to_keycode(L_ALPHA_QWERTY, (keypos_t){column, row});
 
                 if (keycode >= KC_A && keycode <= KC_Z) {
                     rgb_matrix_set_color(index, 0, 0, 255);
