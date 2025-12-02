@@ -1,2 +1,3 @@
-ENCODER_CCW_CW(KC_VOLU, KC_VOLD)
+ENCODER_CCW_CW(RM_VALU, RM_VALD) // Backlight brightness
+
 

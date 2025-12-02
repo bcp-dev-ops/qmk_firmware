@@ -69,7 +69,7 @@ qmk git-submodule
 qmk compile -kb yunzii/al68 -km bcp_supreme_68_percent
 qmk flash -kb yunzii/al68 -km bcp_supreme_68_percent
 
-# if already running my keymap:
+# if already running my keymap: press right function + b
 # if running factory: hold space+b while plugging in keyboard.
 
 
