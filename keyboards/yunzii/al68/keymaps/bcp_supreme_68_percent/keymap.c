@@ -1,8 +1,10 @@
 #include QMK_KEYBOARD_H
-#include "layers.h"
-#include "keycodes.h"
+
+ // Register custom keycodes
+#include "keymap_keycodes.h"
 
 // Register keyboard layers
+#include "layers.h"
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[L_ALPHA_QWERTY] =
 		#include "layers/alpha_qwerty.c"
