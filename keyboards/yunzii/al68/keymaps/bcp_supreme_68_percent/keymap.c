@@ -30,9 +30,29 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 
 
-// Register Macros
+static bool esc_nav_tapped = false;
+static uint16_t esc_nav_timer = 0;
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case ESC_TOGGLE_NAVIGATION_LAYER:
+            if (record->event.pressed) {
+                if (esc_nav_tapped && timer_elapsed(esc_nav_timer) < TAPPING_TERM) {
+                    uint8_t current_layer = get_highest_layer(layer_state);
+                    if (current_layer == L_NAVIGATION) {
+                        layer_off(L_NAVIGATION);
+                    } else {
+                        layer_on(L_NAVIGATION);
+                    }
+                    esc_nav_tapped = false;
+                    return false;
+                } else {
+                    esc_nav_tapped = true;
+                    esc_nav_timer = timer_read();
+                    tap_code(KC_ESC);
+                }
+            }
+            return false;
         case MACRO_COPY:
             if (record->event.pressed) {
                 #include "macros/copy.c"

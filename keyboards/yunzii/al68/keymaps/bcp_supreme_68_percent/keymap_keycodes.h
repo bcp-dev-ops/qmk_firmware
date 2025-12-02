@@ -15,4 +15,5 @@ enum keymap_keycodes {
     MACRO_PASTE,
     MACRO_REDO,
     MACRO_UNDO,
+    ESC_TOGGLE_NAVIGATION_LAYER,
 };

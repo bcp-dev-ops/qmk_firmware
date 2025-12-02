@@ -11,7 +11,7 @@
 /* └──────┴─────┴──────┴──────────────────────────────┴─────┴────┴────┴────┴────┘   */
 
 LAYOUT_65_ansi_blocker(
-    KC_ESC,  _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_BSPC,  _______,
+    ESC_TOGGLE_NAVIGATION_LAYER,  _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   KC_BSPC,  _______,
     KC_TAB,  MACRO_FOCUS_TAB_LEFT, MACRO_FOCUS_TAB_RIGHT, _______, MACRO_DUPLICATE, _______, _______, _______, _______, _______, _______, MACRO_FOCUS_SPACE_LEFT, MACRO_FOCUS_SPACE_RIGHT, _______, _______,
     KC_LCTL, MACRO_FOCUS_WINDOW_LEFT, MACRO_FOCUS_WINDOW_RIGHT, MS_BTN2, MS_BTN1, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT, _______, _______, KC_ENT, _______,
     KC_LSFT, MACRO_UNDO, MACRO_CUT, MACRO_COPY, _______, MACRO_GO_BACK, MACRO_GO_FORWARD, _______, _______, _______, _______, KC_RSFT, KC_UP, _______,
