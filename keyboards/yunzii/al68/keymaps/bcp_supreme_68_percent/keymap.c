@@ -7,7 +7,7 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
         #include "layers/alpha_qwerty_encoder.c"
     },
     [FUNCTIONAL] = {
-        #include "layers/functional_rotary.c"
+        #include "layers/functional_encoder.c"
     },
 };
 
