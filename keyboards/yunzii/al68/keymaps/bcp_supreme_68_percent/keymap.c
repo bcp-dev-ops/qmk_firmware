@@ -30,27 +30,63 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 
 
-static bool esc_nav_tapped = false;
-static uint16_t esc_nav_timer = 0;
+static bool tab_nav_tapped = false;
+static uint16_t tab_nav_timer = 0;
+static bool tab_nav_held = false;
+
+static bool shift_tapped = false;
+static uint16_t shift_timer = 0;
+static bool shift_held = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case ESC_TOGGLE_NAVIGATION_LAYER:
+        case TAB_TOGGLE_NAVIGATION_LAYER:
             if (record->event.pressed) {
-                if (esc_nav_tapped && timer_elapsed(esc_nav_timer) < TAPPING_TERM) {
+                if (tab_nav_tapped && timer_elapsed(tab_nav_timer) < TAPPING_TERM) {
                     uint8_t current_layer = get_highest_layer(layer_state);
                     if (current_layer == L_NAVIGATION) {
                         layer_off(L_NAVIGATION);
                     } else {
                         layer_on(L_NAVIGATION);
                     }
-                    esc_nav_tapped = false;
+                    tab_nav_tapped = false;
+                    tab_nav_held = false;
                     return false;
                 } else {
-                    esc_nav_tapped = true;
-                    esc_nav_timer = timer_read();
-                    tap_code(KC_ESC);
+                    tab_nav_tapped = true;
+                    tab_nav_timer = timer_read();
+                    tab_nav_held = false;
                 }
+            } else {
+                if (tab_nav_held) {
+                    layer_off(L_NAVIGATION);
+                    tab_nav_held = false;
+                } else if (tab_nav_tapped && timer_elapsed(tab_nav_timer) < TAPPING_TERM) {
+                    tap_code(KC_TAB);
+                }
+                tab_nav_tapped = false;
+            }
+            return false;
+        case SHIFT_TOGGLE_NUMLOCK:
+            if (record->event.pressed) {
+                if (shift_tapped && timer_elapsed(shift_timer) < TAPPING_TERM) {
+                    tap_code(KC_NUM_LOCK);
+                    shift_tapped = false;
+                    shift_held = false;
+                    return false;
+                } else {
+                    shift_tapped = true;
+                    shift_timer = timer_read();
+                    shift_held = false;
+                }
+            } else {
+                if (shift_held) {
+                    unregister_code(KC_LSFT);
+                    shift_held = false;
+                } else if (shift_tapped && timer_elapsed(shift_timer) < TAPPING_TERM) {
+                    unregister_code(KC_LSFT);
+                }
+                shift_tapped = false;
             }
             return false;
         case MACRO_COPY:
@@ -129,6 +165,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
     return true;
+}
+
+void matrix_scan_user(void) {
+    if (tab_nav_tapped && !tab_nav_held && timer_elapsed(tab_nav_timer) > TAPPING_TERM) {
+        layer_on(L_NAVIGATION);
+        tab_nav_held = true;
+    }
+    if (shift_tapped && !shift_held && timer_elapsed(shift_timer) > TAPPING_TERM) {
+        register_code(KC_LSFT);
+        shift_held = true;
+    }
 }
 
 // Register Combos
