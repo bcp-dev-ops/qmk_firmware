@@ -3,10 +3,6 @@ static uint16_t tab_nav_timer = 0;
 static bool tab_nav_held = false;
 
 bool process_tab_navigation(uint16_t keycode, keyrecord_t *record) {
-    if (keycode != TAB_TOGGLE_NAVIGATION_LAYER) {
-        return true;
-    }
-
     if (record->event.pressed) {
         if (tab_nav_tapped && timer_elapsed(tab_nav_timer) < TAPPING_TERM) {
             uint8_t current_layer = get_highest_layer(layer_state);

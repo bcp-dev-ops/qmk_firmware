@@ -3,10 +3,6 @@ static uint16_t shift_timer = 0;
 static bool shift_held = false;
 
 bool process_shift_numlock(uint16_t keycode, keyrecord_t *record) {
-    if (keycode != SHIFT_TOGGLE_NUMLOCK) {
-        return true;
-    }
-
     if (record->event.pressed) {
         if (shift_tapped && timer_elapsed(shift_timer) < TAPPING_TERM) {
             tap_code(KC_NUM_LOCK);
