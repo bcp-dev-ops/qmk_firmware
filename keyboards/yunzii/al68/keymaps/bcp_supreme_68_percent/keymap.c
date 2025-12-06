@@ -30,35 +30,24 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 
 
-#include "macros/tab_navigation.c"
-#include "macros/shift_numlock.c"
-#include "macros/copy.c"
-#include "macros/cut.c"
-#include "macros/duplicate.c"
-#include "macros/focus_space_left.c"
-#include "macros/focus_space_right.c"
-#include "macros/focus_tab_left.c"
-#include "macros/focus_tab_right.c"
-#include "macros/focus_window_left.c"
-#include "macros/focus_window_right.c"
-#include "macros/go_back.c"
-#include "macros/go_forward.c"
-#include "macros/paste.c"
-#include "macros/redo.c"
-#include "macros/undo.c"
+#include "macros/macros.c"
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case TAB_TOGGLE_NAVIGATION_LAYER:
-            return process_tab_navigation(keycode, record);
-        case SHIFT_TOGGLE_NUMLOCK:
-            return process_shift_numlock(keycode, record);
         case MACRO_COPY:
             return process_macro_copy(keycode, record);
         case MACRO_CUT:
             return process_macro_cut(keycode, record);
+        case MACRO_DISPLAY_BRIGHTNESS_DECREASE:
+            return process_macro_display_brightness_decrease(keycode, record);
+        case MACRO_DISPLAY_BRIGHTNESS_INCREASE:
+            return process_macro_display_brightness_increase(keycode, record);
         case MACRO_DUPLICATE:
             return process_macro_duplicate(keycode, record);
+        case MACRO_FOCUS_NEXT_WORKSHEET:
+            return process_macro_focus_next_worksheet(keycode, record);
+        case MACRO_FOCUS_PREVIOUS_WORKSHEET:
+            return process_macro_focus_previous_worksheet(keycode, record);
         case MACRO_FOCUS_SPACE_LEFT:
             return process_macro_focus_space_left(keycode, record);
         case MACRO_FOCUS_SPACE_RIGHT:
@@ -83,11 +72,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return process_macro_undo(keycode, record);
     }
     return true;
-}
-
-void matrix_scan_user(void) {
-    matrix_scan_tab_navigation();
-    matrix_scan_shift_numlock();
 }
 
 // Register Combos
