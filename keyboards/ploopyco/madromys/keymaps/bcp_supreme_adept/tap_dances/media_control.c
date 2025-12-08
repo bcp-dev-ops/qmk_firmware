@@ -1,5 +1,5 @@
-static int16_t media_accumulator_x = 0;
-static int16_t media_accumulator_y = 0;
+int16_t media_accumulator_x = 0;
+int16_t media_accumulator_y = 0;
 
 void media_control_finished(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {

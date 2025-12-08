@@ -1,4 +1,4 @@
-static bool is_scroll_mode = false;
+bool is_scroll_mode = false;
 
 void scroll_click_finished(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
