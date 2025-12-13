@@ -68,6 +68,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return process_macro_paste(keycode, record);
         case MACRO_REDO:
             return process_macro_redo(keycode, record);
+        case MACRO_TOGGLE_RAINBOW:
+            return process_macro_toggle_rainbow(keycode, record);
         case MACRO_UNDO:
             return process_macro_undo(keycode, record);
     }

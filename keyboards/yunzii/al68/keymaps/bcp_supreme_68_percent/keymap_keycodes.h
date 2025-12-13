@@ -18,5 +18,6 @@ enum keymap_keycodes {
     MACRO_GO_FORWARD,
     MACRO_PASTE,
     MACRO_REDO,
+    MACRO_TOGGLE_RAINBOW,
     MACRO_UNDO,
 };

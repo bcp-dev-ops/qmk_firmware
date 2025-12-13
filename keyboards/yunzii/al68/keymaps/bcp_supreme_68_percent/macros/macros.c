@@ -15,4 +15,5 @@
 #include "go_forward.c"
 #include "paste.c"
 #include "redo.c"
+#include "toggle_rainbow.c"
 #include "undo.c"
