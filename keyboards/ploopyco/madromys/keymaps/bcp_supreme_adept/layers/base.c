@@ -1,6 +1,6 @@
 LAYOUT(
     QK_BOOT, MACRO_FOCUS_WINDOW_LEFT, MACRO_FOCUS_WINDOW_RIGHT, LT(L_BROWSER, MS_BTN2),
-    MS_BTN1,                      DRAG_SCROLL
+    MS_BTN1,                      DPI_TOGGLE_SCROLL
 )
 
 

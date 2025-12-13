@@ -1,6 +1,10 @@
 static uint16_t zoom_timer = 0;
 
 bool process_pointing_device_keycodes(uint16_t keycode, keyrecord_t *record) {
+    if (!process_dpi_toggle_scroll(keycode, record)) {
+        return false;
+    }
+
     switch (keycode) {
         case DESKTOP_NAVIGATION:
             navigation_mode_set(record->event.pressed);

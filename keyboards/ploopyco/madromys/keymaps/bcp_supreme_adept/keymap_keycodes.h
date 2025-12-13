@@ -19,4 +19,5 @@ enum keymap_keycodes {
     DESKTOP_NAVIGATION,
     CUSTOM_DRAG_SCROLL,
     ZOOM_BUTTON_3,
+    DPI_TOGGLE_SCROLL,
 };

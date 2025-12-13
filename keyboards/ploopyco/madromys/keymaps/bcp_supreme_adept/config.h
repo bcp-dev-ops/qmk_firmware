@@ -1,7 +1,7 @@
 #pragma once
 /* --- Sensor Configuration (Ploopy Adept) --- */
 // Standard high-resolution settings
-#define PLOOPY_TRACKBALL_CPI 1600
+#define PLOOPY_TRACKBALL_CPI 1000
 #define PLOOPY_DRAGSCROLL_DPI 25  // Lower DPI for precision during scroll
 #define PLOOPY_DRAGSCROLL_INVERT_Y // Invert vertical scroll direction
 // #define POINTING_DEVICE_HIRES_SCROLL_ENABLE // Enable fluid high-resolution scrolling
@@ -17,8 +17,8 @@
 #define POINTING_DEVICE_HIRES_SCROLL_MULTIPLIER 15
 
 // Bigger number = slower scrolling
-#define PLOOPY_DRAGSCROLL_DIVISOR_V 70
-#define PLOOPY_DRAGSCROLL_DIVISOR_H 70
+#define PLOOPY_DRAGSCROLL_DIVISOR_V 140
+#define PLOOPY_DRAGSCROLL_DIVISOR_H 140
 
 
 /* --- Mouse Acceleration (Quadratic) --- */
@@ -31,7 +31,7 @@
 #define NAV_THRESHOLD 450
 
 /* --- Scroll Configuration (Hysteresis & High-Res) --- */
-#define SCROLL_SENSITIVITY 0.9f     // Multiplier for fine-grained scroll speed
+#define SCROLL_SENSITIVITY 0.1f     // Multiplier for fine-grained scroll speed
 #define SCROLL_STRAIGHT_FACTOR 1.5
 #define SCROLL_UNLOCK_THRESHOLD 30
 #define POINTING_DEVICE_TASK_THROTTLE_MS 1 // High refresh rate for smooth scroll

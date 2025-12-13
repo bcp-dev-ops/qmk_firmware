@@ -1,11 +1,12 @@
 #pragma once
 
+#include "../pointing_device/pointing_device.h"
+
 enum tap_dance_indices {
     TD_SCROLL_CLICK = 0,
     TD_MEDIA_CONTROL,
 };
 
-extern bool is_scroll_mode;
 extern int16_t media_accumulator_x;
 extern int16_t media_accumulator_y;
 

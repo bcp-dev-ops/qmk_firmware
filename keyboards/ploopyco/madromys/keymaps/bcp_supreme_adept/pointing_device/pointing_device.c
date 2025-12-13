@@ -4,6 +4,7 @@
 #include "scroll_mode.c"
 #include "zoom_mode.c"
 #include "media_mode.c"
+#include "dpi_toggle.c"
 #include "keycodes.c"
 
 report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {

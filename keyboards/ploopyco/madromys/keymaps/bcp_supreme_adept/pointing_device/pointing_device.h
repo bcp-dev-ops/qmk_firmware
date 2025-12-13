@@ -26,4 +26,10 @@ report_mouse_t zoom_mode_process(report_mouse_t mouse_report);
 
 report_mouse_t media_mode_process(report_mouse_t mouse_report, int16_t *media_accumulator_x, int16_t *media_accumulator_y);
 
+void dpi_toggle_init(void);
+void dpi_toggle_scroll_set(bool enabled);
+bool dpi_toggle_scroll_get(void);
+void dpi_toggle(void);
+bool process_dpi_toggle_scroll(uint16_t keycode, keyrecord_t *record);
+
 bool process_pointing_device_keycodes(uint16_t keycode, keyrecord_t *record);

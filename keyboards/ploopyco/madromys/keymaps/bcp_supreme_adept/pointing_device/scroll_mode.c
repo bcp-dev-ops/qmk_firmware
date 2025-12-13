@@ -1,16 +1,16 @@
-static bool is_scroll_mode_active = false;
+bool is_scroll_mode = false;
 static float scroll_accumulator_x = 0.0f;
 static float scroll_accumulator_y = 0.0f;
 
 void scroll_mode_set(bool enabled) {
-    is_scroll_mode_active = enabled;
+    is_scroll_mode = enabled;
     if (enabled) {
         scroll_mode_reset_accumulators();
     }
 }
 
 bool scroll_mode_get(void) {
-    return is_scroll_mode_active;
+    return is_scroll_mode;
 }
 
 void scroll_mode_reset_accumulators(void) {
