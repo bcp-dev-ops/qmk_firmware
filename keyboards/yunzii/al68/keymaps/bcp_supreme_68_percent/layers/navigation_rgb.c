@@ -2,15 +2,23 @@ void navigation_rgb_indicators(void) {
     uint8_t brightness = rgb_matrix_get_val();
     uint8_t soft_purple_r = (brightness * 180) / 255;
     uint8_t soft_purple_g = (brightness * 100) / 255;
-    uint8_t soft_purple_b = brightness;
+    uint8_t soft_purple_b = (brightness * 128) / 255;
 
     uint8_t turquoise_r = 0;
-    uint8_t turquoise_g = (brightness * 224) / 255;
-    uint8_t turquoise_b = (brightness * 208) / 255;
+    uint8_t turquoise_g = (brightness * 112) / 255;
+    uint8_t turquoise_b = (brightness * 104) / 255;
 
     uint8_t blue_r = 0;
     uint8_t blue_g = 0;
-    uint8_t blue_b = brightness;
+    uint8_t blue_b = (brightness * 128) / 255;
+
+    uint8_t red_r = (brightness * 128) / 255;
+    uint8_t red_g = 0;
+    uint8_t red_b = 0;
+
+    uint8_t green_r = 0;
+    uint8_t green_g = (brightness * 128) / 255;
+    uint8_t green_b = 0;
 
     for (uint8_t row = 0; row < MATRIX_ROWS; row++) {
         for (uint8_t column = 0; column < MATRIX_COLS; column++) {
@@ -25,9 +33,9 @@ void navigation_rgb_indicators(void) {
                         keycode == KC_ENT || keycode == KC_SPC || keycode == KC_BSPC) {
                         rgb_matrix_set_color(index, 0, 0, 0);
                     } else if (keycode >= KC_F1 && keycode <= KC_F12) {
-                        rgb_matrix_set_color(index, brightness, 0, 0);
+                        rgb_matrix_set_color(index, red_r, red_g, red_b);
                     } else if (keycode == KC_LEFT || keycode == KC_RIGHT || keycode == KC_UP || keycode == KC_DOWN) {
-                        rgb_matrix_set_color(index, 0, brightness, 0);
+                        rgb_matrix_set_color(index, green_r, green_g, green_b);
                     } else if (keycode == MACRO_FOCUS_TAB_LEFT || keycode == MACRO_FOCUS_TAB_RIGHT ||
                                keycode == MACRO_FOCUS_WINDOW_LEFT || keycode == MACRO_FOCUS_WINDOW_RIGHT ||
                                keycode == MACRO_FOCUS_PREVIOUS_WORKSHEET || keycode == MACRO_FOCUS_NEXT_WORKSHEET ||
