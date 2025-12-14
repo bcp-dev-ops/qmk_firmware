@@ -60,6 +60,10 @@ bool process_macro_keycodes(uint16_t keycode, keyrecord_t *record) {
             #include "focus_window_right.c"
             return false;
 
+        case MACRO_SWAP_MONITOR_WORKSPACES:
+            #include "swap_monitor_workspaces.c"
+            return false;
+
         default:
             return true;
     }
