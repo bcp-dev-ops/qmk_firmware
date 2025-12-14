@@ -10,8 +10,9 @@
 // Use solid color mode (mode 1 = RGB_MATRIX_SOLID_COLOR)
 #define RGB_MATRIX_DEFAULT_MODE 1
 
-#define USB_SUSPEND_WAKEUP_DELAY 200
-#define USB_SUSPEND_WAKEUP_DELAY 200
-
+// USB connection stability fixes
 #define WAIT_FOR_USB
+#define USB_SUSPEND_WAKEUP_DELAY 500
+#define USB_POLLING_INTERVAL_MS 10
+#define USB_MAX_POWER_CONSUMPTION 100
 

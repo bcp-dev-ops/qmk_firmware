@@ -10,9 +10,10 @@ void keyboard_pre_init_kb(void) {
     AFIO->MAPR = (AFIO->MAPR & ~AFIO_MAPR_SWJ_CFG_Msk);
     AFIO->MAPR |= AFIO_MAPR_SWJ_CFG_DISABLE; // diable JTAG (GD32 different to STM32)
     gpio_set_pin_output(A8);
+    wait_ms(100);
     gpio_write_pin_high(A8); // ENABLE USB
     uart_init(460800);
-    wait_ms(400);
+    wait_ms(800);
 }
 
 bool process_record_kb(uint16_t keycode, keyrecord_t* record) {
