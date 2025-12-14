@@ -3,7 +3,7 @@
 
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    if (rainbow_enabled) {
+    if (rgb_matrix_get_mode() != RGB_MATRIX_SOLID_COLOR) {
         return false;
     }
 
