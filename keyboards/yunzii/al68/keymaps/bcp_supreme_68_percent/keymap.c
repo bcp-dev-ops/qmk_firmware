@@ -5,6 +5,17 @@
 
 // Register keyboard layers
 #include "layers.h"
+
+// Vim-style Ctrl+U/D for Page Up/Down
+const key_override_t ctrl_u_page_up = ko_make_basic(MOD_MASK_CTRL, KC_U, KC_PGUP);
+const key_override_t ctrl_d_page_down = ko_make_basic(MOD_MASK_CTRL, KC_D, KC_PGDN);
+
+const key_override_t *key_overrides[] = {
+    &ctrl_u_page_up,
+    &ctrl_d_page_down,
+    NULL
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[L_ALPHA_QWERTY] =
 		#include "layers/alpha_qwerty.c"
