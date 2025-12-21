@@ -1,6 +1,6 @@
 static uint16_t dpi_high = 1000;
-static uint16_t dpi_low = 250;
-static uint16_t dpi_scroll = 50;
+static uint16_t dpi_low = 500;
+static uint16_t dpi_scroll = 75;
 static uint16_t current_dpi = 1000;
 static bool is_in_scroll_mode = false;
 static uint16_t dpi_timer = 0;
