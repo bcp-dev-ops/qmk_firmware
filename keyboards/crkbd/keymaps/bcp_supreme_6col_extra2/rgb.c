@@ -6,7 +6,7 @@ bool rgb_matrix_indicators_user(void) {
 
     switch (current_layer) {
         case ALPHA_STRDY:
-            alpha_strdy_rgb_indicators();
+            // alpha_strdy_rgb_indicators();
             break;
     }
 
