@@ -16,6 +16,10 @@ const key_override_t *key_overrides[] = {
     NULL
 };
 
+// To be refactored later
+static bool dh_game_active = false;
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[L_ALPHA_QWERTY] =
 		#include "layers/alpha_qwerty.c"
@@ -83,6 +87,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return process_macro_toggle_rainbow(keycode, record);
         case MACRO_UNDO:
             return process_macro_undo(keycode, record);
+        case KC_DESKHOP_CONFIGOPEN:
+            return process_macro_open_deskhop_config(keycode, record);
+        case KC_DESKHOP_GAME_MODE:
+            return process_macro_enable_deskhop_game_mode(keycode, record);
+        case KC_LOCK_DESKHOP:
+            return process_macro_lock_deskhop(keycode, record);
+        case KC_SAVE_DESKHOP_OFFSET:
+            return process_macro_save_deskhop_offset(keycode, record);
     }
     return true;
 }

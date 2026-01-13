@@ -17,3 +17,7 @@
 #include "redo.c"
 #include "toggle_rainbow.c"
 #include "undo.c"
+#include "enable_deskhop_game_mode.c"
+#include "open_deskhop_config.c"
+#include "lock_deskhop.c"
+#include "save_deskhop_offset.c"

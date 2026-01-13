@@ -7,6 +7,14 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         return false;
     }
 
+    // Deskhop
+    if (host_keyboard_led_state().caps_lock) {
+        rgb_matrix_set_color(3, 255, 255, 255);  // Indicator LED, white
+    }
+    if (dh_game_active) {
+        rgb_matrix_set_color(38, 255, 255, 255);  // KC_DH_GAME key, white
+    }
+
     uint8_t current_layer = get_highest_layer(layer_state);
 
     switch (current_layer) {
